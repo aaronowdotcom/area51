@@ -4,6 +4,7 @@ renderer/.next/
 renderer/out/
 dist/
 resources/jdk/
+node.exe
 *.jar
 !java-service/lib/*.jar
 .env

@@ -10,6 +10,7 @@
     "build:java": "bash scripts/build-java.sh",
     "package": "npm run build && bash scripts/package.sh",
     "download:jdk": "bash scripts/download-jdk.sh",
+    "setup:win": "powershell -ExecutionPolicy Bypass -File scripts/setup-win.ps1",
     "postinstall": "cd renderer && npm install"
   },
   "pkg": {
