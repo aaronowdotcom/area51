@@ -69,7 +69,7 @@ echo "Salesperson: double-click start.bat"
 echo ""
 
 # -------------------------------------------------------
-# Linux / macOS distribution  (pkg binary)
+# Linux / macOS distribution  (pkg binary) - optional
 # -------------------------------------------------------
 UNIX_DIST="$REPO/dist/nexaflow-sales-kit-unix"
 echo "==> Building Unix distribution: $UNIX_DIST"
@@ -77,12 +77,15 @@ rm -rf "$UNIX_DIST"
 assemble_common "$UNIX_DIST"
 
 cd "$REPO"
-npx @yao-pkg/pkg launcher.js \
-  --targets node21-linux-x64,node21-macos-x64,node21-macos-arm64 \
-  --output "$UNIX_DIST/sales-kit"
-
-echo "Unix distribution ready."
-echo "Salesperson: ./sales-kit"
+if npx @yao-pkg/pkg launcher.js \
+  --targets node20-linux-x64,node20-macos-x64,node20-macos-arm64 \
+  --output "$UNIX_DIST/sales-kit" 2>&1; then
+  echo "Unix distribution ready."
+  echo "Salesperson: ./sales-kit"
+else
+  echo "WARNING: pkg binary build failed (skipping Unix binary)."
+  echo "Windows distribution is unaffected."
+fi
 echo ""
 
 # -------------------------------------------------------
