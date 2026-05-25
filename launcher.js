@@ -28,7 +28,8 @@ function startJavaService() {
   }
 
   const java = fs.existsSync(javaExe) ? javaExe : 'java'
-  const proc = spawn(java, ['-jar', jar, '--port', String(JAVA_PORT)], {
+  const profile = process.env.SPRING_PROFILES_ACTIVE || 'prod'
+  const proc = spawn(java, ['-jar', jar, `--spring.profiles.active=${profile}`, `--server.port=${JAVA_PORT}`], {
     stdio: ['ignore', 'pipe', 'pipe'],
   })
   proc.stdout.on('data', d => process.stdout.write('[Java] ' + d))

@@ -16,7 +16,7 @@ JAVA="$REPO_ROOT/resources/jdk/bin/java"
 
 echo "Starting Java service on port 7878..."
 export CONTENT_DIR="$REPO_ROOT/content"
-"$JAVA" -jar "$JAR" --port 7878 &
+"$JAVA" -jar "$JAR" --spring.profiles.active=sit --server.port=7878 &
 JAVA_PID=$!
 
 cleanup() { echo "Shutting down..."; kill $JAVA_PID 2>/dev/null || true; }

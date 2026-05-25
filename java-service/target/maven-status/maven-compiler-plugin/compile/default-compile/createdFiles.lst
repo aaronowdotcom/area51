@@ -1,0 +1,5 @@
+saleskit/controller/ProposalController.class
+saleskit/config/CorsConfig.class
+saleskit/SalesKitApplication.class
+saleskit/controller/ExportController.class
+saleskit/controller/HealthController.class

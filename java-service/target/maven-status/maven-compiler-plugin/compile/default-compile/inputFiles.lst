@@ -1,0 +1,5 @@
+/home/user/area51/java-service/src/main/java/saleskit/SalesKitApplication.java
+/home/user/area51/java-service/src/main/java/saleskit/config/CorsConfig.java
+/home/user/area51/java-service/src/main/java/saleskit/controller/ExportController.java
+/home/user/area51/java-service/src/main/java/saleskit/controller/HealthController.java
+/home/user/area51/java-service/src/main/java/saleskit/controller/ProposalController.java
