@@ -1,0 +1,10 @@
+node_modules/
+renderer/node_modules/
+renderer/.next/
+renderer/out/
+dist/
+resources/jdk/
+*.jar
+!java-service/lib/*.jar
+.env
+.DS_Store
