@@ -1,0 +1,7 @@
+[
+  { "company": "Acme Corp",      "stage": "Proposal",    "value": "$120,000", "days": 12 },
+  { "company": "GlobalTech Ltd", "stage": "Demo",        "value": "$85,000",  "days": 5  },
+  { "company": "Veritas Systems","stage": "Negotiation", "value": "$220,000", "days": 28 },
+  { "company": "BrightPath Inc", "stage": "Discovery",   "value": "$45,000",  "days": 3  },
+  { "company": "Meridian Group", "stage": "Closed Won",  "value": "$175,000", "days": 0  }
+]

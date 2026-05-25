@@ -1,0 +1,42 @@
+{
+  "plans": [
+    {
+      "name": "Starter",
+      "priceMonthly": 99,
+      "priceAnnual": 79,
+      "unit": "per seat/mo",
+      "desc": "For small teams just getting started with automation.",
+      "features": ["5 active workflows", "Up to 10,000 runs/month", "50+ integrations", "Email support", "5 GB log retention"],
+      "excluded": ["Analytics dashboard", "SSO / SAML", "Audit logs", "Dedicated support"],
+      "cta": "Start Free Trial",
+      "highlight": false
+    },
+    {
+      "name": "Business",
+      "priceMonthly": 299,
+      "priceAnnual": 239,
+      "unit": "per seat/mo",
+      "desc": "For scaling teams that need power, visibility, and control.",
+      "features": ["Unlimited workflows", "Up to 500,000 runs/month", "200+ integrations", "Analytics dashboard", "Priority support (4h SLA)", "90-day log retention", "Team workspaces"],
+      "excluded": ["SSO / SAML", "Custom SLA"],
+      "cta": "Start Free Trial",
+      "highlight": true
+    },
+    {
+      "name": "Enterprise",
+      "priceMonthly": null,
+      "priceAnnual": null,
+      "unit": "custom pricing",
+      "desc": "For organizations that need compliance, security, and scale.",
+      "features": ["Unlimited everything", "SSO / SAML 2.0 & SCIM", "Full audit trail", "Custom SLA agreements", "Dedicated success manager", "On-premise deployment option", "Custom integrations"],
+      "excluded": [],
+      "cta": "Contact Sales",
+      "highlight": false
+    }
+  ],
+  "addons": [
+    { "name": "Extra Run Pack",      "price": "$49/mo",  "desc": "+ 250,000 runs/month" },
+    { "name": "Advanced Analytics",  "price": "$79/mo",  "desc": "BI-grade dashboards & exports" },
+    { "name": "Compliance Pack",     "price": "$149/mo", "desc": "SOC 2, HIPAA, GDPR controls" }
+  ]
+}

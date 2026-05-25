@@ -36,9 +36,7 @@ export default function Proposals() {
     setStatus('generating')
     try {
       // Try Java service first, fall back to local generation
-      const port = typeof window !== 'undefined' && window.salesKit
-        ? await window.salesKit.getJavaPort()
-        : 7878
+      const port = 7878
 
       const res = await fetch(`http://localhost:${port}/api/proposal`, {
         method: 'POST',

@@ -1,54 +1,27 @@
 import Layout from '../components/Layout'
 
-const products = [
-  {
-    id: 1,
-    name: 'NexaFlow Core',
-    tagline: 'Workflow Automation for Growing Teams',
-    description:
-      'Automate repetitive tasks, connect your existing tools, and free your team to focus on what matters. NexaFlow Core integrates with 200+ apps out of the box.',
-    highlights: ['Visual drag-and-drop builder', '200+ pre-built integrations', 'Real-time execution logs', 'Role-based access control'],
-    badge: 'Most Popular',
-    badgeClass: 'badge-blue',
-    icon: '⚡',
-    color: 'from-blue-600/20 to-blue-900/10',
-  },
-  {
-    id: 2,
-    name: 'NexaFlow Analytics',
-    tagline: 'Business Intelligence Built into Your Workflows',
-    description:
-      'Turn workflow data into actionable insights. Track KPIs, monitor SLAs, and generate executive reports automatically — no data team required.',
-    highlights: ['30+ chart types & dashboards', 'Automated scheduled reports', 'SLA monitoring & alerts', 'Custom metrics builder'],
-    badge: 'New',
-    badgeClass: 'badge-green',
-    icon: '◉',
-    color: 'from-emerald-600/20 to-emerald-900/10',
-  },
-  {
-    id: 3,
-    name: 'NexaFlow Enterprise',
-    tagline: 'The Full Platform for Complex Organizations',
-    description:
-      'Everything in Core and Analytics, plus enterprise-grade security, SSO, audit logs, and dedicated support. Built for regulated industries and global teams.',
-    highlights: ['SSO / SAML 2.0 & SCIM', 'Full audit trail & compliance', 'Dedicated success manager', 'Custom SLA agreements'],
-    badge: 'Enterprise',
-    badgeClass: 'badge-orange',
-    icon: '◈',
-    color: 'from-purple-600/20 to-purple-900/10',
-  },
-]
+export async function getServerSideProps() {
+  const fs = require('fs')
+  const path = require('path')
+  const dir = process.env.CONTENT_DIR || path.join(process.cwd(), '..', 'content')
+  try {
+    const products = JSON.parse(fs.readFileSync(path.join(dir, 'products.json'), 'utf8'))
+    return { props: { products } }
+  } catch {
+    return { props: { products: [] } }
+  }
+}
 
 const useCases = [
-  { title: 'Sales Ops', desc: 'Auto-qualify leads, sync CRM, trigger proposals' },
-  { title: 'HR & Onboarding', desc: 'Provision accounts, assign training, notify managers' },
-  { title: 'Finance', desc: 'Approval workflows, invoice routing, reconciliation' },
-  { title: 'IT Operations', desc: 'Ticket routing, change management, alerts' },
-  { title: 'Customer Success', desc: 'Health scoring, QBR prep, renewal automation' },
-  { title: 'Marketing', desc: 'Campaign triggers, lead scoring, attribution reports' },
+  { title: 'Sales Ops',         desc: 'Auto-qualify leads, sync CRM, trigger proposals' },
+  { title: 'HR & Onboarding',   desc: 'Provision accounts, assign training, notify managers' },
+  { title: 'Finance',           desc: 'Approval workflows, invoice routing, reconciliation' },
+  { title: 'IT Operations',     desc: 'Ticket routing, change management, alerts' },
+  { title: 'Customer Success',  desc: 'Health scoring, QBR prep, renewal automation' },
+  { title: 'Marketing',         desc: 'Campaign triggers, lead scoring, attribution reports' },
 ]
 
-export default function Catalog() {
+export default function Catalog({ products }) {
   return (
     <Layout title="Products">
       <div className="max-w-6xl">
@@ -57,7 +30,6 @@ export default function Catalog() {
           <p className="text-slate-400 mt-1">Three powerful products, one unified platform</p>
         </div>
 
-        {/* Products */}
         <div className="space-y-5 mb-10">
           {products.map((p) => (
             <div key={p.id} className={`card bg-gradient-to-r ${p.color} border-slate-700/50`}>
@@ -75,14 +47,13 @@ export default function Catalog() {
                   <ul className="grid grid-cols-2 gap-1.5">
                     {p.highlights.map((h) => (
                       <li key={h} className="flex items-center gap-2 text-sm text-slate-300">
-                        <span className="text-emerald-400 shrink-0">✓</span>
-                        {h}
+                        <span className="text-emerald-400 shrink-0">✓</span>{h}
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="shrink-0 flex flex-col gap-2">
-                  <a href="/pricing" className="btn-primary text-sm">View Pricing</a>
+                  <a href="/pricing"   className="btn-primary text-sm">View Pricing</a>
                   <a href="/proposals" className="btn-secondary text-sm text-center">Add to Proposal</a>
                 </div>
               </div>
@@ -90,7 +61,6 @@ export default function Catalog() {
           ))}
         </div>
 
-        {/* Use cases */}
         <div className="card">
           <h2 className="text-lg font-semibold text-slate-100 mb-4">Common Use Cases</h2>
           <div className="grid grid-cols-3 gap-4">
